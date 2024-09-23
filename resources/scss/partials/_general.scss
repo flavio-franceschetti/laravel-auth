@@ -1,4 +1,4 @@
-header{
+header, aside{
     a{
         color: white;
         text-decoration: none;
@@ -13,4 +13,18 @@ button{
     background: none;
     color: white;
     border: none;
+}
+
+
+aside{
+    width: 200px;
+    height: 100%;
+}
+
+.body-content{
+    height: 100vh;
+}
+
+.aside-nav{
+    padding: 0;
 }

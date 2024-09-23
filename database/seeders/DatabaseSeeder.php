@@ -18,5 +18,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        
+        //richiamado il seeder qui possiamo rilanciarlo semplicemente con il comando php artisan db:seed senza dover inserire il nome 
+        $this->call(ProjectsTableSeeder::class);
     }
 }
