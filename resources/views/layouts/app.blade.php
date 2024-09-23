@@ -17,11 +17,11 @@
 
     @include('admin.partials.header')
 
-    <div class="body-content d-flex">
+    <div class="wrapper d-flex">
         @if (Auth::check())
             @include('admin.partials.aside')
         @endif
-        <div class="p-4">
+        <div class="main-content p-4">
 
             @yield('content')
         </div>

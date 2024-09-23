@@ -17,14 +17,19 @@ button{
 
 
 aside{
-    width: 200px;
+    min-width: 200px;
     height: 100%;
 }
 
-.body-content{
-    height: 100vh;
+.wrapper{
+    height: calc(100vh - 74px);
+    overflow: hidden;
 }
 
 .aside-nav{
     padding: 0;
+}
+
+.main-content{
+    overflow: auto;
 }
