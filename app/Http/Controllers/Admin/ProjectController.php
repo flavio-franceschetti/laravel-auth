@@ -46,7 +46,7 @@ class ProjectController extends Controller
         // salvo il nuovo progetto
         $newProject->save();
         // reindirizzo alla pagina index dove c'è l'elenco di tutti i progetti
-        return redirect()->route('admin.projects.index', $newProject->id);
+        return redirect()->route('admin.projects.show', $newProject->id);
     }
 
     /**
@@ -60,17 +60,27 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->all();
+
+        if($data['name'] === $project->name){
+            $data['slug'] = $project->slug;
+        } else{
+            $data['slug'] = Helper::generateSlug($data['name'], Project::class);
+        }
+
+        $project->update($data);
+        return redirect()->route('admin.projects.show', $project->id);
+
     }
 
     /**

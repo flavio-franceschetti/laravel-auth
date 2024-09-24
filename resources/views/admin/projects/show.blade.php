@@ -23,7 +23,8 @@
                     <td>{{ $project->github }}</td>
                     <td class="d-flex flex-column gap-2">
                         {{-- <a class="btn btn-primary" href="#"><i class="fa-solid fa-eye"></i></a> --}}
-                        <a class="btn btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
                         <a class="btn btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>

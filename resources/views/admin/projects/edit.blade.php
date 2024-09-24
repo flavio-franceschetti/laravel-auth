@@ -1,26 +1,32 @@
 @extends('layouts.app')
 
+
 @section('content')
-    <h3>Inserisci un nuovo progetto</h3>
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    @extends('layouts.app')
+
+@section('content')
+    <h3>Modifica il progetto</h3>
+    <form action="{{ route('admin.projects.update', $project) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $project->name }}">
             @error('name')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
-            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
+            <input type="text" class="form-control" id="description" name="description"
+                value="{{ $project->description }}">
             @error('description')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="github" class="form-label">Github</label>
-            <input type="text" class="form-control" id="github" name="github" value="{{ old('github') }}">
+            <input type="text" class="form-control" id="github" name="github" value="{{ $project->github }}">
             @error('github')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -42,4 +48,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-warning">Annulla</button>
     </form>
+@endsection
+
+
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>Lista {{ $projectCount }} proggetti </h3>
+    <h3>Lista {{ $projectCount }} progetti </h3>
     <table class="table">
         <tdead>
             <tr>
@@ -26,7 +26,8 @@
                         <td class="d-flex flex-column gap-2">
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}"><i
                                     class="fa-solid fa-eye"></i></a>
-                            <a class="btn btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
                             <a class="btn btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
