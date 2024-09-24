@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h3>Lista {{ $projectCount }} proggetti </h3>
     <table class="table">
         <tdead>
             <tr>
@@ -23,7 +24,8 @@
                         <td>{{ $project->status ? 'Done' : 'In progress' }}</td>
                         <td>{{ $project->github }}</td>
                         <td class="d-flex flex-column gap-2">
-                            <a class="btn btn-primary" href="#"><i class="fa-solid fa-eye"></i></a>
+                            <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             <a class="btn btn-warning" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a class="btn btn-danger" href="#"><i class="fa-solid fa-trash"></i></a>
                         </td>

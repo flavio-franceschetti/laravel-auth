@@ -17,8 +17,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->get();
+        $projectCount= Project::count('id');
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects','projectCount'));
     }
 
     /**
@@ -51,9 +52,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
